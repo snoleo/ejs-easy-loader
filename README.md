@@ -7,7 +7,7 @@
 
 [![npm][npm]][npm-url]
 [![node][node]][node-url]
-
+[![deps][deps]][deps-url]
 
 # ejs-easy-loader for Webpack
 
@@ -57,7 +57,7 @@ mkdir -p ./ejs-easy-loader-eg/node_modules && cd ./ejs-easy-loader-eg && \
 ```
 After testing the example, you can just delete this `./ejs-easy-loader-eg` folder.
 
-#### Step 3-2) Create webpack config, template and partial files:
+#### Step 3-2) Add webpack config, template and partial files:
 
 **webpack.conf.js**
 ```javascript
@@ -214,8 +214,11 @@ After searching and learning I decided to create this `ejs-easy-loader`, hope it
 MIT (http://www.opensource.org/licenses/mit-license.php)
 
 
-[npm]:https://img.shields.io/npm/v/ejs-easy-loader.svg
+[npm]: https://img.shields.io/npm/v/ejs-easy-loader.svg
 [npm-url]: https://npmjs.com/package/ejs-easy-loader
 
 [node]: https://img.shields.io/node/v/ejs-easy-loader.svg
 [node-url]: https://nodejs.org
+
+[deps]: https://img.shields.io/david/snoleo/ejs-easy-loader.svg
+[deps-url]: https://david-dm.org/snoleo/ejs-easy-loader
