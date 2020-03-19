@@ -50,7 +50,7 @@ Recommend to use this loader with [html-webpack-plugin](https://github.com/janti
 
 Below is a minimal example illustrating how to use ejs-easy-loader to include partials in a template file. You can find this example in [examples](https://github.com/snoleo/ejs-easy-loader/blob/master/examples) folder.
 
-#### Step 3-1) First install all the modules:
+#### Step 3-1) Install all the modules:
 
 `npm install -D webpack webpack-cli html-webpack-plugin ejs-easy-loader`
 
@@ -130,7 +130,7 @@ module.exports = {
 </ul>
 ```
 
-#### Step 3-3) run webpack to generate HTML files:
+#### Step 3-3) Run webpack to generate HTML files:
 
 `./node_modules/webpack/bin/webpack.js --config ./webpack.conf.js`
 
@@ -189,7 +189,10 @@ webpack will generate files in folder `./dist/` in default. The two output html 
 
 ### Options for `ejs-easy-loader` 
 
-Generally there is no need to set any additional options for `ejs-easy-loader`, just load it as `{ loader: 'ejs-easy-loader' }` in webpack config file without any options. `ejs-easy-loader` has set the default options `{ client: true, filename: '.' }` for `ejs.compile` function in the program.
+Generally there is no need to set any additional options for `ejs-easy-loader`, just load it as `{ loader: 'ejs-easy-loader' }` in webpack config file without any options. 
+
+`ejs-easy-loader` has set the default options `{ client: true, filename: '.' }` for `ejs.compile` function in the program.
+
 If you want to set some additional options or overwrite the default options(not recommended), refer to [EJS docs](https://ejs.co/#docs) for more details.
 
 ### Minification
@@ -199,8 +202,9 @@ If you want to minimize the output htmls, you should set `minify` option in [htm
 
 ## Why another ejs loader
 
-There are several ejs loaders for Webpack on github, but most of them are outdated. When I tried to insert some partial HTML inside a [html-webpack-plugin](https://github.com/jantimon/html-webpack-plugin) template file, seems none of the ejs loader could achieve this. Neither could answers on stackoverflow.com would help.
-After searching and learning I wrote this `ejs-easy-loader`, hope it will help others who want to achieve partial in template.
+There are already several ejs loaders for Webpack on github, but most of them are outdated. When I tried to insert some partial HTML inside a [html-webpack-plugin](https://github.com/jantimon/html-webpack-plugin) template file, none of the ejs loader could work. Neither could answers on stackoverflow.com would help.
+
+After searching and learning I decided to create this `ejs-easy-loader`, hope it will help others to work at partial in template.
 
 ## License
 
