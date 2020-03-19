@@ -50,11 +50,14 @@ Recommend to use this loader with [html-webpack-plugin](https://github.com/janti
 
 Below is a minimal example illustrating how to use ejs-easy-loader to include partials in a template file. You can find this example in [examples](https://github.com/snoleo/ejs-easy-loader/blob/master/examples) folder.
 
-#### Step 3-1) Install all the modules:
+#### Step 3-1) Install the modules in ./ejs-easy-loader-eg folder:
+```
+mkdir -p ./ejs-easy-loader-eg/node_modules && cd ./ejs-easy-loader-eg && \
+  npm install webpack webpack-cli html-webpack-plugin ejs-easy-loader
+```
+After testing the example, you can just delete this `./ejs-easy-loader-eg` folder.
 
-`npm install -D webpack webpack-cli html-webpack-plugin ejs-easy-loader`
-
-#### Step 3-2) Add webpack config, template and partial files:
+#### Step 3-2) Create webpack config, template and partial files:
 
 **webpack.conf.js**
 ```javascript
