@@ -1,6 +1,6 @@
 {
   "name": "ejs-easy-loader",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "EJS loader for webpack. Uses EJS templating engine, achieving partial in templates.",
   "main": "index.js",
   "scripts": {
