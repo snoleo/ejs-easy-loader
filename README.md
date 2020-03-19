@@ -57,7 +57,7 @@ mkdir -p ./ejs-easy-loader-eg/node_modules && cd ./ejs-easy-loader-eg && \
 ```
 After testing the example, you can just delete this `./ejs-easy-loader-eg` folder.
 
-#### Step 3-2) Add webpack config, template and partial files:
+#### Step 3-2) Create webpack config, template and partial files:
 
 **webpack.conf.js**
 ```javascript
