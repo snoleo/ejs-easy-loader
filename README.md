@@ -7,12 +7,11 @@
 
 [![npm][npm]][npm-url]
 [![node][node]][node-url]
-[![deps][deps]][deps-url]
 
 
 # ejs-easy-loader for Webpack
 
-EJS loader for [Webpack](http://webpack.js.org/)([git](http://webpack.github.io/)). Uses [ejs](https://ejs.co/)([git](https://github.com/mde/ejs)) templating engine to compile templates, achieving partial in templates.
+EJS loader for [Webpack](http://webpack.js.org/)( [webpack github](http://webpack.github.io/) ). Uses [ejs](https://ejs.co/)( [ejs github](https://github.com/mde/ejs) ) templating engine to compile templates, easy to insert partial in templates.
 
 ## Installation
 
@@ -20,17 +19,45 @@ EJS loader for [Webpack](http://webpack.js.org/)([git](http://webpack.github.io/
 
 ## Usage
 
-Use with [html-webpack-plugin](https://github.com/jantimon/html-webpack-plugin), a very helpful plugin for generating HTML files.
+Add to webpack conf:
+```javascript
+module.exports = {
+  //...
+  module: {
+    rules: [
+      { test: /\.ejs$/i, use: [ { loader: 'ejs-easy-loader' } ] }
+    ]
+  },
+  //...
+};
+```
 
-Below is a minimal example illustrating how to use ejs-easy-loader to include partials in a template file.
+Include partial in template file:
+```html
+<div>
+  <% /* following line includes partial ejs file without passing any parameter to partial file */ %>
+  <%- require('./partial-a.ejs')() %>
+</div>
+<div>
+  <% /* following line includes partial file and passing a parameter (an object) to partial file */ %>
+  <%- require('./partial-b.ejs')({ 'title': 'Part-B', 'content': 'Partial Content' }) %>
+</div>
+```
 
-1. First install all the modules:
+Recommend to use this loader with [html-webpack-plugin](https://github.com/jantimon/html-webpack-plugin), a very helpful plugin for generating HTML files in Webpack.
+
+### Example
+
+Below is a minimal example illustrating how to use ejs-easy-loader to include partials in a template file. You can find this example in [examples](https://github.com/snoleo/ejs-easy-loader/blob/master/examples) folder.
+
+#### Step 3-1) First install all the modules:
+
 `npm install -D webpack webpack-cli html-webpack-plugin ejs-easy-loader`
 
-2. config, template and partial files content:
+#### Step 3-2) Add webpack config, template and partial files:
 
 **webpack.conf.js**
-```js
+```javascript
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
@@ -38,12 +65,7 @@ module.exports = {
   entry: './index.js',
   module: {
     rules: [
-      {
-        test: /\.ejs$/i,
-        use: [
-          { loader: 'ejs-easy-loader' }
-        ]
-      }
+      { test: /\.ejs$/i, use: [ { loader: 'ejs-easy-loader' } ] }
     ]
   },
   plugins: [
@@ -51,7 +73,7 @@ module.exports = {
       template: './template.ejs',
       filename: './page-a.html',
       title: 'Page A Title',
-      meta: {'keywords': 'word1, word2', 'description': 'page '},
+      meta: {'keywords': 'word1, word2', 'description': 'page description'},
       name: "a"
     }),
     new HtmlWebpackPlugin({
@@ -67,7 +89,7 @@ module.exports = {
 ```
 
 **index.js**
-```js
+```javascript
 // You can leave this entry file empty in this example.
 ```
 
@@ -83,9 +105,9 @@ module.exports = {
   <div id="header"><h2>Common Page Header</h2></div>
   <div id="content">
     <% if (htmlWebpackPlugin.options.name === "a") { %>
-      <%- require('./page-a.ejs')() // include partial file %>
+      <%- require('./page-a.ejs')() /* include partial file without parameter */ %>
     <% } else if (htmlWebpackPlugin.options.name === "b") { %>
-      <%- require('./page-b.ejs')(htmlWebpackPlugin.options) // pass variable to partial file %>
+      <%- require('./page-b.ejs')(htmlWebpackPlugin.options) /* pass an object to partial file */ %>
     <% } %>
   </div>
   <div id="footer"><h2>Common Page Footer</h2></div>
@@ -108,9 +130,11 @@ module.exports = {
 </ul>
 ```
 
-3. run webpack to generate HTML files:
+#### Step 3-3) run webpack to generate HTML files:
+
 `./node_modules/webpack/bin/webpack.js --config ./webpack.conf.js`
-webpack will generate files in folder `./dist/` in default, the output html files as follows:
+
+webpack will generate files in folder `./dist/` in default. The two output html files generated are as follows:
 
 **./dist/page-a.html**
 ```html
@@ -119,7 +143,7 @@ webpack will generate files in folder `./dist/` in default, the output html file
 <head>
   <meta charset="utf-8"/>
   <title>Page A Title</title>
-<meta name="keywords" content="word1, word2"><meta name="description" content="page "></head>
+<meta name="keywords" content="word1, word2"><meta name="description" content="page description"></head>
 <body>
   <div id="header"><h2>Common Page Header</h2></div>
   <div id="content">
@@ -163,7 +187,7 @@ webpack will generate files in folder `./dist/` in default, the output html file
 </html>
 ```
 
-### ejs-easy-loader options
+### Options for `ejs-easy-loader` 
 
 Generally there is no need to set any additional options for `ejs-easy-loader`, just load it as `{ loader: 'ejs-easy-loader' }` in webpack config file without any options. `ejs-easy-loader` has set the default options `{ client: true, filename: '.' }` for `ejs.compile` function in the program.
 If you want to set some additional options or overwrite the default options(not recommended), refer to [EJS docs](https://ejs.co/#docs) for more details.
@@ -181,3 +205,10 @@ After searching and learning I wrote this `ejs-easy-loader`, hope it will help o
 ## License
 
 MIT (http://www.opensource.org/licenses/mit-license.php)
+
+
+[npm]:https://img.shields.io/npm/v/ejs-easy-loader.svg
+[npm-url]: https://npmjs.com/package/ejs-easy-loader
+
+[node]: https://img.shields.io/node/v/ejs-easy-loader.svg
+[node-url]: https://nodejs.org

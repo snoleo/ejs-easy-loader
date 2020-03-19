@@ -1,6 +1,6 @@
 {
   "name": "ejs-easy-loader",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "EJS loader for webpack. Uses EJS templating engine, achieving partial in templates.",
   "main": "index.js",
   "scripts": {
@@ -14,9 +14,10 @@
     "ejs",
     "templating",
     "loader",
-    "webpack"
+    "webpack",
+    "ejs-easy-loader"
   ],
-  "author": "Snoleo",
+  "author": "Snoleo (https://github.com/snoleo)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/snoleo/ejs-easy-loader/issues"
@@ -26,5 +27,8 @@
   "dependencies": {
     "ejs": "^3.0.1",
     "loader-utils": "^2.0.0"
+  },
+  "engines": {
+    "node": ">=8.9.0"
   }
 }

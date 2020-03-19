@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title><%= htmlWebpackPlugin.options.title %></title>
+</head>
+<body>
+  <div id="header"><h2>Common Page Header</h2></div>
+  <div id="content">
+    <% if (htmlWebpackPlugin.options.name === "a") { %>
+      <%- require('./page-a.ejs')() /* include partial file without parameter */ %>
+    <% } else if (htmlWebpackPlugin.options.name === "b") { %>
+      <%- require('./page-b.ejs')(htmlWebpackPlugin.options) /* pass an object to partial file */ %>
+    <% } %>
+  </div>
+  <div id="footer"><h2>Common Page Footer</h2></div>
+</body>
+</html>
