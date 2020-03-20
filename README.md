@@ -44,7 +44,7 @@ Include partial in template file:
 </div>
 ```
 
-Recommend to use this loader with [html-webpack-plugin](https://github.com/jantimon/html-webpack-plugin), a very helpful plugin for generating HTML files in Webpack.
+Recommend to use this loader with [html-webpack-plugin](https://github.com/jantimon/html-webpack-plugin), a very handy plugin for generating HTML files in Webpack.
 
 ### Example
 
@@ -202,12 +202,11 @@ If you want to set some additional options or overwrite the default options(not 
 
 If you want to minimize the output htmls, you should set `minify` option in [html-webpack-plugin](https://github.com/jantimon/html-webpack-plugin#minification).
 
-
 ## Why another ejs loader
 
-There are already several ejs loaders for Webpack on github, but most of them are outdated. When I tried to insert some partial HTML inside a [html-webpack-plugin](https://github.com/jantimon/html-webpack-plugin) template file, none of the ejs loader could work. Neither could answers on stackoverflow.com would help.
+There are already several ejs loaders for Webpack on github, but most of them are outdated. When I tried to include some partial HTML inside a [html-webpack-plugin](https://github.com/jantimon/html-webpack-plugin) template file, I could not get a clear and proper solution, neither could answers on stackoverflow.com would help.
 
-After searching and learning I decided to create this `ejs-easy-loader`, hope it will help others to work at partial in template.
+After searching and learning I decided to create this `ejs-easy-loader`, hope it will help others to work at including partials in a template.
 
 ## License
 
