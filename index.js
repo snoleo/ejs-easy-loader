@@ -15,7 +15,7 @@ module.exports = function(source) {
   ejsOptions = Object.assign({ client: true, filename: '.' }, loaderOptions);
 
   template = ejs.compile(source, ejsOptions);
-  if (template.dependencies.length > 0) {
+  if (template.dependencies && template.dependencies.length > 0) {
     var that = this;
     template.dependencies.foreach(function(dep){ that.addDependency(dep); });
   }

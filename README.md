@@ -46,6 +46,13 @@ Include partial in template file:
 
 Recommend to use this loader with [html-webpack-plugin](https://github.com/jantimon/html-webpack-plugin), a very handy plugin for generating HTML files in Webpack.
 
+### Tags in template
+
+Tags are compatible with [ejs](https://ejs.co/#docs) style:
++ `<%` 'Scriptlet' tag, for control-flow, no output
++ `<%=` Outputs the value into the template (HTML escaped)
++ `<%-` Raw output tag, outputs the unescaped value into the template
+
 ### Example
 
 Below is a minimal example illustrating how to use ejs-easy-loader to include partials in a template file. You can find this example in [examples](https://github.com/snoleo/ejs-easy-loader/blob/master/examples) folder.
